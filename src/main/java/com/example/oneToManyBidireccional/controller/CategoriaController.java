@@ -1,5 +1,6 @@
 package com.example.oneToManyBidireccional.controller;
 
+import com.example.oneToManyBidireccional.DTO.CategoriaConProductosDTO;
 import com.example.oneToManyBidireccional.entity.Categoria;
 import com.example.oneToManyBidireccional.service.CategoriaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,5 +22,9 @@ public class CategoriaController {
     @PostMapping
     public Categoria crearCategoria(@RequestBody Categoria categoria) {
         return categoriaService.crearCategoria(categoria);
+    }
+    @GetMapping("/{id}")
+    public CategoriaConProductosDTO obtenerCategoriaConProductos(@PathVariable Long id) {
+        return categoriaService.obtenerCategoriaConProductos(id);
     }
 }
